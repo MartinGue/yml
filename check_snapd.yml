@@ -1,0 +1,15 @@
+---
+- name: Check if snapd is installed
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Check snapd status
+      ansible.builtin.command: snap --version
+      register: snapd_status
+      ignore_errors: yes
+
+    - name: Display snapd status
+      debug:
+        var: snapd_status.stdout
+      when: "'snap' in snapd_status.stdout"

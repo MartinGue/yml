@@ -1,0 +1,11 @@
+---
+- name: Install snapd
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install snapd package
+      apt:
+        name: snapd
+        state: latest
+

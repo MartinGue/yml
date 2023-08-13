@@ -1,0 +1,12 @@
+---
+- name: Add VSCodium GPG key
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Add VSCodium GPG key
+      shell: >
+        curl https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg |
+        gpg --dearmor |
+        sudo tee /usr/share/keyrings/vscodium.gpg >/dev/null
+

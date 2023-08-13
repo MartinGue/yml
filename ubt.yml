@@ -1,0 +1,12 @@
+---
+- name: Update and Upgrade Ubuntu packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: yes

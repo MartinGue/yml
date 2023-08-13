@@ -1,0 +1,14 @@
+---
+- name: Install VSCodium
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install VSCodium
+      vars:
+        # Change this URL if you want a different version to be installed
+        codium_url: "https://github.com/VSCodium/vscodium/releases/download/1.37.1/codium_1.37.1-1565952268_amd64.deb"
+      apt:
+        deb: "{{ codium_url }}"
+        state: present
+

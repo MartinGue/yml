@@ -1,0 +1,11 @@
+- name: Install VSCodium
+  hosts: all
+  become: true
+
+  tasks:
+   
+   - name: Remove Codium Old package
+     apt:
+       name: codium
+       state: absent
+

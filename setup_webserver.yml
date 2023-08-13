@@ -1,0 +1,16 @@
+---
+- hosts: nginx
+  remote_user: m
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: "Install Apache, MySQL, and PHP"
+      apt:
+        pkg:
+          - apache2
+          - mysql-server
+          - python3-mysqldb
+          - php
+          - php-pear
+          - php-mysql
+        state: present   
